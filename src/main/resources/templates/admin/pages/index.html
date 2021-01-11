@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head th:replace="/fragments/head"></head>
 
@@ -8,12 +8,30 @@
     <nav th:replace="/fragments/nav :: nav-admin"></nav>
 
     <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="col">
-                <h1>Admin Pages</h1>
-            </div>
+        <h1 class="display-2">Pages</h1>
+        <a href="/admin/pages/add" class="btn btn-primary">Add new</a>
+
+        <div th:if="${!pages.empty}">
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="page: ${pages}">
+                    <td th:text="${page.title}"></td>
+                    <td th:text="${page.slug}"></td>
+                    <td><a th:href="@{'/admin/pages/edit' + ${page.id}">Edit</a></td>
+                    <td><a th:href="@{'/admin/pages/delete' + ${page.id}">Delete</a></td>
+                </tr>
+            </table>
         </div>
+
+        <div th:unless="${!pages.empty}">
+            <p>There are NO pages</p>
+        </div>
+
     </div>
 
 <footer th:replace="/fragments/footer"></footer>

@@ -1,8 +1,6 @@
 package org.example.shoppingcart.models.data;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 
