@@ -22,8 +22,8 @@
                 <tr th:each="page: ${pages}">
                     <td th:text="${page.title}"></td>
                     <td th:text="${page.slug}"></td>
-                    <td><a th:href="@{'/admin/pages/edit' + ${page.id}">Edit</a></td>
-                    <td><a th:href="@{'/admin/pages/delete' + ${page.id}">Delete</a></td>
+                    <td><a th:href="@{'/admin/pages/edit/' + ${page.id}}">Edit</a></td>
+                    <td><a th:href="@{'/admin/pages/delete/' + ${page.id}}">Delete</a></td>
                 </tr>
             </table>
         </div>
