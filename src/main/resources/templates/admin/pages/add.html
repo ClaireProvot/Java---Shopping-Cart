@@ -13,14 +13,14 @@
 
         <form method="post" th:object="${page}" th:action="@{/admin/pages/add}">
 
-            <div th:if="${#fields.hasError('*')}" class="alert alert-danger">
+            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
                 There are errors
             </div>
 
             <div class="form-group">
                 <label for="">Title</label>
                 <input type="text" class="form-control" th:field="*{title}" placeholder="Title">
-                <span class="error" th:if="${#fields.hasError('title')}" th:error="*{title}"></span>
+                <span class="error" th:if="${#fields.hasErrors('title')}" th:error="*{title}"></span>
             </div>
 
             <div class="form-group">
@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label for="">Content</label>
                 <textarea th:field="*{content}" rows="10" class="form-control" placeholder="Content"></textarea>
-                <span class="error" th:if="${#fields.hasError('content')}" th:error="*{content}"></span>
+                <span class="error" th:if="${#fields.hasErrors('content')}" th:error="*{content}"></span>
             </div>
 
             <button class="btn btn-danger mb-5">Add</button>

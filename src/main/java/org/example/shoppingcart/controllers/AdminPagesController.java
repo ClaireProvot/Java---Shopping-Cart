@@ -2,6 +2,7 @@ package org.example.shoppingcart.controllers;
 
 import org.example.shoppingcart.models.PageRepository;
 import org.example.shoppingcart.models.data.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +15,8 @@ import java.util.List;
 @RequestMapping("/admin/pages")
 public class AdminPagesController {
 
+    @Autowired
     private PageRepository pageRepository;
-
-    public AdminPagesController(PageRepository pageRepository) {
-        this.pageRepository = pageRepository;
-    }
 
     @GetMapping
     public String index(Model model) {
