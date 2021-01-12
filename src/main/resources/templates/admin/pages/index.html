@@ -11,6 +11,8 @@
         <h1 class="display-2">Pages</h1>
         <a href="/admin/pages/add" class="btn btn-primary">Add new</a>
 
+        <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+
         <div th:if="${!pages.empty}">
             <table class="table">
                 <tr>
@@ -23,7 +25,7 @@
                     <td th:text="${page.title}"></td>
                     <td th:text="${page.slug}"></td>
                     <td><a th:href="@{'/admin/pages/edit/' + ${page.id}}">Edit</a></td>
-                    <td><a th:href="@{'/admin/pages/delete/' + ${page.id}}">Delete</a></td>
+                    <td><a th:if="${page.slug != 'home'}" th:href="@{'/admin/pages/delete/' + ${page.id}}" class="confirmDeletion">Delete</a></td>
                 </tr>
             </table>
         </div>
