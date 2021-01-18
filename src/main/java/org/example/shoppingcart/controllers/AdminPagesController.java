@@ -22,7 +22,7 @@ public class AdminPagesController {
     @GetMapping
     public String index(Model model) {
 
-        List<Page> pages = pageRepository.findAll();
+        List<Page> pages = pageRepository.findAllByOrderBySortingAsc();
 
         model.addAttribute("pages", pages);
 
