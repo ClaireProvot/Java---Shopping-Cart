@@ -30,7 +30,7 @@ public class AdminPagesController {
     }
 
     @GetMapping("/add")
-    public String add(@ModelAttribute Page page) {
+    public String add(Page page) {
 
         return "admin/pages/add";
     }
