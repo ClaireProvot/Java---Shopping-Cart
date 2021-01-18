@@ -102,7 +102,7 @@ public class AdminPagesController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id, RedirectAttributes redirectAttributes) {
+    public String edit(@PathVariable int id, RedirectAttributes redirectAttributes) {
 
         pageRepository.deleteById(id);
 
@@ -110,5 +110,20 @@ public class AdminPagesController {
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
 
         return "admin/pages/index";
+    }
+
+    @PostMapping("/reorder")
+    public @ResponseBody String reorder(@RequestParam("id[]") int[] id) {
+        int count = 1;
+        Page page;
+
+        for (int pageId : id) {
+            page = pageRepository.getOne(pageId);
+            page.setSorting(count);
+            pageRepository.save(page);
+            count++;
+        }
+
+        return "ok";
     }
 }
