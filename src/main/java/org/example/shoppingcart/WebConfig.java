@@ -13,10 +13,5 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("home");
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-                .addResourceHandler("/media/**")
-                .addResourceLocations("file:/Users/claireprovot/Spring/springApp/src/main/resources/static/media");
-    }
+
 }
