@@ -24,11 +24,13 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <tr th:each="product: ${product}">
+            <tr th:each="product: ${products}">
                 <td th:text="${product.name}"></td>
-                <td th:text="${product.image}"></td>
-                <td th:text="${product.dategory.id}"></td>
-                <td th:text="${product.price}"></td>
+                <td>
+                    <img style="width: 100px;" th:src="@{'/media/' + ${product.image}}">
+                </td>
+                <td th:text="${cats[__${product.categoryId}__]}"></td>
+                <td th:text="'$' + ${product.price}"></td>
                 <td><a th:href="@{'/admin/products/edit/' + ${product.id}}">Edit</a></td>
                 <td><a th:href="@{'/admin/product/delete/' + ${product.id}}" class="confirmDeletion">Delete</a></td>
             </tr>
