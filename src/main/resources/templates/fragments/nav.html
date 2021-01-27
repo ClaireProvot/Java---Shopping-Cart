@@ -7,8 +7,8 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" th:each="page: ${cpages}">
-                <a th:if="${page.slug != 'home'}" class="nav-link" th:href="@{'/' + ${page.slug}}" th:text="${page.title}"></a>
+            <li class="nav-item active" th:each="page: ${cpages}"  th:if="${page.slug != 'home'}">
+                <a class="nav-link" th:href="@{'/' + ${page.slug}}" th:text="${page.title}"></a>
             </li>
         </ul>
     </div>
