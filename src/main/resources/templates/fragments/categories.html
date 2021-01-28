@@ -4,8 +4,8 @@
         <li class="list-group-item">
             <a href="/category/all" class="nav-link">All Products</a>
         </li>
-        <li class="lisst-group-item" th:each="category: ${ccategories}">
-            <a th:href="@{'/category/' + ${category.slug}}" th:text="${category.name}"></a>
+        <li class="list-group-item" th:each="category: ${ccategories}">
+            <a class="nav-link" th:href="@{'/category/' + ${category.slug}}" th:text="${category.name}"></a>
         </li>
     </ul>
 </div>

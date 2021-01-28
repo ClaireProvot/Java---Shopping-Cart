@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -53,9 +52,9 @@ public class CategoriesController {
 
             int categoryId = category.getId();
             String categoryName = category.getName();
-            List<Product> products = productRepository.findAllByCategoryId(categoryId, pageable);
+            List<Product> products = productRepository.findAllByCategoryId(Integer.toString(categoryId), pageable);
 
-            count = productRepository.countByCategoryId(categoryId);
+            count = productRepository.countByCategoryId(Integer.toString(categoryId));
 
             model.addAttribute("products", products);
             model.addAttribute("categoryName", categoryName);
