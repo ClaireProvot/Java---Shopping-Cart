@@ -13,6 +13,10 @@
             <div th:replace="/fragments/categories"></div>
             <div class="col"></div>
             <div class="col-7">
+                <div class="overlay text-center d-none">
+                    <h4 class="display-4">You are being redirected to paypal ... </h4>
+                    <img src="/images/ajax-loader.gif">
+                </div>
                 <h2 class="display-4">Cart Overview</h2>
                 <table class="table">
                     <tr>
@@ -58,7 +62,34 @@
         </div>
     </div>
 
-<footer th:replace="/fragments/footer"></footer>
+    <form id="paypalform" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_cart">
+        <input class="hidden" name="upload" value="1">
+        <input type="hidden" name="business" value="provot.claire@gmail.com">
+
+        <th:block th:each="el, iter : ${cart}">
+            <input type="hidden" th:name="'item_name_' + ${iter.count}" th:valeu="${el.value.name}">
+            <input type="hidden" th:name="'amount_' + ${iter.count}" th:valeu="${el.value.price}">
+            <input type="hidden" th:name="'quantity_' + ${iter.count}" th:valeu="${el.value.quantity}">
+        </th:block>
+
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+
+    </form>
+
+    <footer th:replace="/fragments/footer"></footer>
+
+    <script>
+        $(function() {
+            $("a.checkout").click(function (e) {
+                e.preventDefault();
+                $("div.overlay").removeClass("d-none");
+                $get("/cart/clear", {}, function() {});
+                $("form#paypalform").submit();
+            });
+        });
+    </script>
 
 </body>
 
