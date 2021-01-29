@@ -1,7 +1,7 @@
 package org.example.shoppingcart.controllers;
 
 import org.example.shoppingcart.models.Cart;
-import org.example.shoppingcart.models.ProductRepository;
+import org.example.shoppingcart.repositories.ProductRepository;
 import org.example.shoppingcart.models.data.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

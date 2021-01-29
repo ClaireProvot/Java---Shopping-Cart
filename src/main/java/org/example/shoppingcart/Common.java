@@ -1,8 +1,8 @@
 package org.example.shoppingcart;
 
 import org.example.shoppingcart.models.Cart;
-import org.example.shoppingcart.models.CategoryRepository;
-import org.example.shoppingcart.models.PageRepository;
+import org.example.shoppingcart.repositories.CategoryRepository;
+import org.example.shoppingcart.repositories.PageRepository;
 import org.example.shoppingcart.models.data.Category;
 import org.example.shoppingcart.models.data.Page;
 import org.springframework.beans.factory.annotation.Autowired;

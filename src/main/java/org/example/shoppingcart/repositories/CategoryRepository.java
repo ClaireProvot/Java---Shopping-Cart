@@ -1,4 +1,4 @@
-package org.example.shoppingcart.models;
+package org.example.shoppingcart.repositories;
 
 import org.example.shoppingcart.models.data.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
